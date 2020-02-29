@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Raycast : MonoBehaviour
 {
-   public GameObject particle;
-
+   
+    private Color[] bolas = new Color[] { Color.green, Color.blue, Color.red };
     void Update()
     {
+        int i = 0;
         foreach (Touch touch in Input.touches)
         {
             if (touch.phase == TouchPhase.Began)
@@ -16,8 +17,7 @@ public class Raycast : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 if (Physics.Raycast(ray))
                 {
-                    // Create a particle if hit
-                    Instantiate(particle, transform.position, transform.rotation);
+                    GetComponent<Renderer>().material.color= bolas[i];
                 }
             }
         }
