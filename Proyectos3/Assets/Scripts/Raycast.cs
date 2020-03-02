@@ -8,7 +8,8 @@ public class Raycast : MonoBehaviour
     private Color[] bolas = new Color[] { Color.green, Color.blue, Color.red };
     void Update()
     {
-        int i = 0;
+        int i = 1;
+      
         foreach (Touch touch in Input.touches)
         {
             if (touch.phase == TouchPhase.Began)
